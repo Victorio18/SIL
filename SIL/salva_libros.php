@@ -1,0 +1,24 @@
+<?php
+//salva_empleados.php
+require "funciones/conecta.php";
+
+$con = conecta();
+
+//Recibe variables
+
+$nombre = $_REQUEST["nombre"];
+$isbn = $_REQUEST["isbn"];
+$editorial = $_REQUEST["editorial"];
+$year = $_REQUEST["year"];
+$autor = $_REQUEST["autor"];
+$costo = $_REQUEST["costo"];
+$stock = $_REQUEST["stock"];
+
+$sql = "INSERT INTO libros (nombre, isbn, editorial, year, autor, costo, stock) VALUES ('$nombre', '$isbn', '$editorial', '$year', '$autor', '$costo', '$stock')";
+
+$res = $con->query($sql);
+
+header("Location: lista_libros.php");
+
+
+?>
